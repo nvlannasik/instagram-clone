@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, ScrollView, StyleSheet, Image} from 'react-native';
 import {USERS} from '../../data/user';
+import {Divider} from 'react-native-elements';
 
 const Stories = () => {
   return (
@@ -17,6 +18,7 @@ const Stories = () => {
           </View>
         ))}
       </ScrollView>
+      <Divider width={1} orientation="vertical" />
     </View>
   );
 };
