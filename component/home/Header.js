@@ -56,6 +56,7 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: 20,
     backgroundColor: 'white',
+    height: 50,
   },
   iconsContainer: {
     flexDirection: 'row',
