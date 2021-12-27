@@ -17,7 +17,6 @@ const Stories = () => {
           </View>
         ))}
       </ScrollView>
-      <Text>Stories</Text>
     </View>
   );
 };
@@ -29,7 +28,7 @@ const style = StyleSheet.create({
     borderRadius: 50,
     marginLeft: 6,
     borderWidth: 3,
-    borderColor: 'red',
+    borderColor: '#C13584',
   },
 });
 
