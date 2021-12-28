@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, SafeAreaView, StyleSheet, ScrollView} from 'react-native';
 import Header from '../component/home/Header';
+import Navbar, {bottomTabIcons} from '../component/home/Navbar';
 import Post from '../component/home/Post';
 import Stories from '../component/home/Stories';
 import {POSTS} from '../data/posts';
@@ -15,6 +16,7 @@ const HomeScreen = () => {
           <Post post={post} key={index} />
         ))}
       </ScrollView>
+      <Navbar icons={bottomTabIcons} />
     </SafeAreaView>
   );
 };
