@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = () => {
   return (
@@ -12,20 +13,10 @@ const Header = () => {
       </TouchableOpacity>
       <View style={style.iconsContainer}>
         <TouchableOpacity>
-          <Image
-            source={{
-              uri: 'https://img.icons8.com/material-outlined/24/000000/add.png',
-            }}
-            style={style.icon}
-          />
+          <Icon name="add-circle-outline" size={30} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image
-            source={{
-              uri: 'https://img.icons8.com/material-outlined/24/000000/filled-like.png',
-            }}
-            style={style.icon}
-          />
+          <Icon name="heart-outline" size={30} />
         </TouchableOpacity>
 
         <TouchableOpacity>
