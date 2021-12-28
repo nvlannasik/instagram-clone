@@ -32,4 +32,8 @@ export const USERS = [
     user: 'imbron',
     image: 'https://adaptivenetworklab.org/img/team/Pieter.png',
   },
+    {
+    user: 'Agus',
+    image: 'https://adaptivenetworklab.org/img/team/Pieter.png',
+  },
 ];
