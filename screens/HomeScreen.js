@@ -9,8 +9,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
-
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Stories />
         {POSTS.map((post, index) => (
           <Post post={post} key={index} />

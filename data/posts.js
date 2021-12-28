@@ -9,11 +9,11 @@ export const POSTS = [
     profile_picture: USERS[0].image,
     comments: [
       {
-        user: 'kwkwkwkwk',
+        user: 'kwkwkwkwronk',
         comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
       },
       {
-        user: 'kwkwkwkwk',
+        user: 'kwronwk',
         comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
       },
     ],
@@ -22,16 +22,16 @@ export const POSTS = [
     imageUrl:
       'http://blogunik.com/wp-content/uploads/2017/03/foto-menakjubkan-keren-non-photoshop-1.jpg',
     user: USERS[1].user,
-    likes: 9292,
+    likes: 923292,
     caption: 'lololololololo',
     profile_picture: USERS[1].image,
     comments: [
       {
-        user: 'kwkwkwkwk',
+        user: 'bron',
         comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
       },
       {
-        user: 'kwkwkwkwk',
+        user: 'kwkron',
         comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
       },
     ],
