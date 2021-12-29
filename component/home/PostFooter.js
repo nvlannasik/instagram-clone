@@ -6,12 +6,12 @@ const PostFooter = () => {
   return (
     <View style={style.container}>
       <View style={style.spasi}>
-        <Icon name="heart-o" size={30} color="#000000" />
-        <Icon name="comment-o" size={30} color="#000000" />
-        <Icon name="send-o" size={30} color="#000000" />
+        <Icon name="heart-o" size={25} color="#000000" />
+        <Icon name="comment-o" size={25} color="#000000" />
+        <Icon name="send-o" size={25} color="#000000" />
       </View>
       <View style={style.bookmarkIconContainer}>
-        <Icon name="bookmark-o" size={30} color="#000000" />
+        <Icon name="bookmark-o" size={25} color="#000000" />
       </View>
     </View>
   );
