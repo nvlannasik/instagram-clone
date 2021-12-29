@@ -13,7 +13,7 @@ const PostHeader = ({post}) => {
         <Text style={style.textPost}>{post.user}</Text>
       </View>
 
-      <Icon name="dots-vertical" size={23} color={'#202020'} />
+      <Icon name="dots-vertical" size={23} color={'#0E0E0E'} />
     </View>
   );
 };
@@ -37,8 +37,8 @@ const style = StyleSheet.create({
   },
   textPost: {
     marginLeft: 8,
-    fontWeight: '700',
-    color: '#202020',
+    fontWeight: '600',
+    color: '#0B0B0B',
   },
   containerPost: {
     flexDirection: 'row',

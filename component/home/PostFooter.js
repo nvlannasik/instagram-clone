@@ -9,22 +9,22 @@ const PostFooter = () => {
     <View style={style.container}>
       <View style={style.spasi}>
         <View style={{marginLeft: 16}}>
-          <Icon name="heart-o" size={25} color="#202020" />
+          <Icon name="heart-o" size={25} color="#181818" />
         </View>
         <View style={style.flip}>
-          <IconIo name="chatbubble-outline" size={25} color="#202020" />
+          <IconIo name="chatbubble-outline" size={25} color="#181818" />
         </View>
         <View style={{marginLeft: 16}}>
           <IconFeather
             name="send"
             size={25}
-            color="#202020"
+            color="#181818"
             style={style.rotasi}
           />
         </View>
       </View>
       <View style={style.bookmarkIconContainer}>
-        <Icon name="bookmark-o" size={25} color="#202020" />
+        <Icon name="bookmark-o" size={25} color="#181818" />
       </View>
     </View>
   );

@@ -46,7 +46,8 @@ const style = StyleSheet.create({
     marginLeft: 16,
   },
   textStori: {
-    color: '#2F2F2F',
+    color: '#000000',
+    fontWeight: '500',
   },
 });
 
