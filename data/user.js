@@ -5,17 +5,17 @@ export const USERS = [
       'https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2021/10/05/1258955827.jpg',
   },
   {
-    user: 'larlee',
+    user: 'larlwwee',
     image:
       'https://s0.bukalapak.com/uploads/attachment/48496/pexels-photo-247322.jpeg',
   },
   {
-    user: 'eimi24443',
+    user: 'eimi243',
     image:
       'https://media.hitekno.com/thumbs/2020/06/06/69431-eimi-fukuda/730x480-img-69431-eimi-fukuda.jpg',
   },
   {
-    user: 'hanaana_ccss',
+    user: 'hanaana_',
     image: 'https://pbs.twimg.com/media/E4wrw3ZUYAQSuT0.jpg',
   },
   {
@@ -32,7 +32,7 @@ export const USERS = [
     user: 'imbron',
     image: 'https://adaptivenetworklab.org/img/team/Pieter.png',
   },
-    {
+  {
     user: 'Agus',
     image: 'https://adaptivenetworklab.org/img/team/Pieter.png',
   },

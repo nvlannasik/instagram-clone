@@ -5,20 +5,22 @@ import {Divider} from 'react-native-elements';
 
 const Stories = () => {
   return (
-    <View style={{marginBottom: 13}}>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {USERS.map((story, index) => (
-          <View key={index} style={{alignItems: 'center'}}>
-            <Image source={{uri: story.image}} style={style.story} />
-            <Text>
-              {story.user.length > 11
-                ? story.user.slice(0, 10).toLowerCase() + '...'
-                : story.user.toLowerCase()}
-            </Text>
-          </View>
-        ))}
-      </ScrollView>
-      <Divider width={1} orientation="vertical" />
+    <View style={style.container}>
+      <View>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {USERS.map((story, index) => (
+            <View key={index} style={style.viewStoriesContainer}>
+              <Image source={{uri: story.image}} style={style.story} />
+              <Text style={style.textStori}>
+                {story.user.length > 11
+                  ? story.user.slice(0, 10).toLowerCase() + '...'
+                  : story.user.toLowerCase()}
+              </Text>
+            </View>
+          ))}
+        </ScrollView>
+        <Divider width={1} orientation="vertical" />
+      </View>
     </View>
   );
 };
@@ -28,9 +30,23 @@ const style = StyleSheet.create({
     width: 70,
     height: 70,
     borderRadius: 50,
-    marginLeft: 6,
+
     borderWidth: 3,
     borderColor: '#C13584',
+  },
+  container: {
+    marginBottom: 8,
+  },
+  wrapper: {
+    marginLeft: 8,
+  },
+  viewStoriesContainer: {
+    marginBottom: 6,
+    alignItems: 'center',
+    marginLeft: 16,
+  },
+  textStori: {
+    color: '#2F2F2F',
   },
 });
 
