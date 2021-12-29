@@ -13,7 +13,7 @@ const PostHeader = ({post}) => {
         <Text style={style.textPost}>{post.user}</Text>
       </View>
 
-      <Icon name="dots-vertical" size={20} />
+      <Icon name="dots-vertical" size={23} color={'#202020'} />
     </View>
   );
 };
@@ -24,6 +24,8 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     margin: 5,
     alignItems: 'center',
+    marginLeft: 8,
+    marginBottom: 8,
   },
   imagePostStory: {
     width: 35,
@@ -34,8 +36,9 @@ const style = StyleSheet.create({
     borderColor: '#C13584',
   },
   textPost: {
-    marginLeft: 5,
+    marginLeft: 8,
     fontWeight: '700',
+    color: '#202020',
   },
   containerPost: {
     flexDirection: 'row',
