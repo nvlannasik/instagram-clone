@@ -9,12 +9,13 @@ export const POSTS = [
     profile_picture: USERS[0].image,
     comments: [
       {
-        user: 'kwkwkwkwronk',
-        comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
+        user: 'lokeee_',
+        comment:
+          'here are many variations of passages of Lorem Ipsum avaity have suffered alteration in some form, by injected humour,',
       },
       {
-        user: 'kwronwk',
-        comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
+        user: 'errrw_',
+        comment: 'here are many variations ted humour,',
       },
     ],
   },
@@ -28,11 +29,13 @@ export const POSTS = [
     comments: [
       {
         user: 'bron',
-        comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
+        comment:
+          'here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,',
       },
       {
         user: 'kwkron',
-        comment: 'wiwiwiwiwiwiwiwekeikwijeiwjeijrifewuiohwfeiouewf lorem',
+        comment:
+          'here are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,',
       },
     ],
   },

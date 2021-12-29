@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 
 const CommentSection = ({post}) => {
   return (
-    <View>
+    <View style={style.container}>
       {!!post.comments.length && (
-        <Text>
+        <Text style={style.textSemua}>
           View {post.comments.length > 1 ? 'all' : ' '}{' '}
           {post.comments.length > 1 ? 'comments' : 'comment'}
         </Text>
@@ -15,3 +15,14 @@ const CommentSection = ({post}) => {
 };
 
 export default CommentSection;
+
+const style = StyleSheet.create({
+  container: {
+    marginLeft: 16,
+    marginTop: 4,
+    marginBottom: 1,
+  },
+  textSemua: {
+    fontWeight: '500',
+  },
+});
