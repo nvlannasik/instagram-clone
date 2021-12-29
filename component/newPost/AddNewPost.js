@@ -17,7 +17,7 @@ const image = 'https://img.icons8.com/material/90/000000/back--v1.png'
 const Header   = () => (
     <View style={styles.headerContainer}>
     <TouchableOpacity>
-    <Image source={{uri : image}} styles={{width : 30, height : 30 }}/>
+    <Image source={{uri : image}} style={{width : 30, height : 30, marginTop : 12}}/>
     </TouchableOpacity>
     <Text style={styles.headerText}>NEW POST</Text>
     <Text></Text>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     headerText : {
         color : '#000',
         fontWeight : '700',
-        fontSize : 25,
+        fontSize : 20,
         marginTop : 10,
         marginRight : 20 ,
     }
