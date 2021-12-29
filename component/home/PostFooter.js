@@ -1,17 +1,30 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import IconFeather from 'react-native-vector-icons/Feather';
+import IconIo from 'react-native-vector-icons/Ionicons';
 
 const PostFooter = () => {
   return (
     <View style={style.container}>
       <View style={style.spasi}>
-        <Icon name="heart-o" size={25} color="#000000" />
-        <Icon name="comment-o" size={25} color="#000000" />
-        <Icon name="send-o" size={25} color="#000000" />
+        <View style={{marginLeft: 16}}>
+          <Icon name="heart-o" size={25} color="#202020" />
+        </View>
+        <View style={style.flip}>
+          <IconIo name="chatbubble-outline" size={25} color="#202020" />
+        </View>
+        <View style={{marginLeft: 16}}>
+          <IconFeather
+            name="send"
+            size={25}
+            color="#202020"
+            style={style.rotasi}
+          />
+        </View>
       </View>
       <View style={style.bookmarkIconContainer}>
-        <Icon name="bookmark-o" size={25} color="#000000" />
+        <Icon name="bookmark-o" size={25} color="#202020" />
       </View>
     </View>
   );
@@ -20,15 +33,24 @@ const PostFooter = () => {
 const style = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    marginTop: 8,
+    marginBottom: 8,
   },
   spasi: {
     flexDirection: 'row',
-    width: '32%',
-    justifyContent: 'space-between',
+    width: '50%',
   },
   bookmarkIconContainer: {
     alignItems: 'flex-end',
     flex: 1,
+    marginRight: 16,
+  },
+  rotasi: {
+    transform: [{rotate: '16deg'}],
+  },
+  flip: {
+    transform: [{scaleX: -1}],
+    marginLeft: 16,
   },
 });
 
