@@ -3,14 +3,14 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconWe from 'react-native-vector-icons/FontAwesome5';
 
-const Header = () => {
+const Header = ({navigation}) => {
   return (
     <View style={style.container}>
       <TouchableOpacity>
         <Image source={require('../../assets/logo.png')} style={style.logo} />
       </TouchableOpacity>
       <View style={style.iconsContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.push('NewPostScreen')}>
           <Icon
             name="add-circle-outline"
             size={30}

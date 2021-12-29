@@ -6,10 +6,10 @@ import Post from '../component/home/Post';
 import Stories from '../component/home/Stories';
 import {POSTS} from '../data/posts';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
-      <Header />
+      <Header navigation={navigation}/>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Stories />
         {POSTS.map((post, index) => (

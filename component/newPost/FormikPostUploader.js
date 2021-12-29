@@ -12,15 +12,22 @@ const uploadPostSchema = Yup.object().shape({
 })
 
 const PLACEHOLDER_IMG = 'https://img.icons8.com/ios-glyphs/90/000000/full-image.png'
-const FormikPostUploader = () => {
+
+const FormikPostUploader = ({navigation}) => {
     const [ThumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG)
     return (
         <Formik initialValues={{caption: '',imageUrl : ''}} 
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values) => {
+                    console.log(values)
+                    console.log('Your post was submitted successfully')
+                    navigation.goBack()
+                }}
                 validationSchema={uploadPostSchema}
-                validateOnMount={true}>
+                validateOnMount={true}
+                >
 
             {({handleBlur , handleChange, handleSubmit, values,errors, isValid}) =>
+            (
                 <>
                 <View style={{margin : 20 , justifyContent : 'space-between', flexDirection : 'row'}}>
                     <Image 
@@ -47,13 +54,13 @@ const FormikPostUploader = () => {
                         onBlur={handleBlur('imageUrl')} 
                         value={values.imageUrl}/>
                 {errors.imageUrl && (
-                    <Text style={{fontSize: 50, color : 'red'}}>
+                    <Text style={{fontSize: 10, color : 'red'}}>
                         {errors.imageUrl}
                     </Text>
                 )}
                 <Button onPress={handleSubmit} title='Share' disabled={!isValid}/>
                 </>
-            }
+            )}
         </Formik>
     )
 }
