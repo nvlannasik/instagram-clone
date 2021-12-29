@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const PostHeader = ({post}) => {
   return (
@@ -12,7 +13,7 @@ const PostHeader = ({post}) => {
         <Text style={style.textPost}>{post.user}</Text>
       </View>
 
-      <Text style={{fontWeight: '900'}}>...</Text>
+      <Icon name="dots-vertical" size={20} />
     </View>
   );
 };
