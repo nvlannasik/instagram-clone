@@ -1,10 +1,11 @@
 import React , {useState} from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Button } from 'react-native'
 import * as Yup from 'yup'
 import { Formik } from 'formik'
 import { TextInput } from 'react-native-gesture-handler'
 import { Divider } from 'react-native-elements'
-import { Button } from 'react-native-elements/dist/buttons/Button'
+import validUrl from 'valid-url'
+
 
 const uploadPostSchema = Yup.object().shape({
     imageurl : Yup.string().url().required('A URL is required'),
@@ -31,7 +32,9 @@ const FormikPostUploader = ({navigation}) => {
                 <>
                 <View style={{margin : 20 , justifyContent : 'space-between', flexDirection : 'row'}}>
                     <Image 
-                        source={{uri : ThumbnailUrl ? ThumbnailUrl : PLACEHOLDER_IMG}} 
+                        source={{uri : validUrl.isUri(ThumbnailUrl) 
+                                    ? ThumbnailUrl
+                                    : PLACEHOLDER_IMG}} 
                         style={{width : 80, height : 80}}/>
                     <View style={{flex : 1, marginLeft : 12}}>
                     <TextInput 
