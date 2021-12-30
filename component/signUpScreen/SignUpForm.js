@@ -69,7 +69,7 @@ const SignupForm = ({navigation}) => {
                 textContentType="username"
                 autoCapitalize="none"
                 autoCorrect={false}
-                secureTextEntry={true}
+                secureTextEntry={false}
                 onChangeText={handleChange('username')}
                 onBlur={handleBlur('username')}
                 value={values.username}
@@ -128,11 +128,13 @@ const styles = StyleSheet.create({
 
   inputField: {
     borderRadius: 4,
-    padding: 12,
+    paddingVertical: 2,
+    paddingLeft: 8,
     backgroundColor: '#FAFAFA',
-    marginBottom: 10,
+    marginBottom: 16,
     borderWidth: 1,
-    height: 65,
+    height: 45,
+    marginHorizontal: 8,
   },
 
   button: isValid => ({
@@ -141,6 +143,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 42,
     borderRadius: 4,
+    marginHorizontal: 8,
   }),
 
   buttonText: {
