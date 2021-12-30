@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import SignedInStack from './screens/navigation';
-
+import AuthNavigation from './AuthNavigation';
 
 export class App extends Component {
   render() {
-    return <SignedInStack />;
+    return <AuthNavigation />;
   }
 }
 
