@@ -9,9 +9,11 @@ import firestore from '@react-native-firebase/firestore';
 
 const HomeScreen = ({navigation}) => {
   useEffect(() => {
-    firestore.collectionGroup('posts').onSnapshot(snapshot => {
-      console.log(snapshot.docs.map(doc => doc.data()));
-    });
+    firestore()
+      .collectionGroup('posts')
+      .onSnapshot(snapshot => {
+        console.log(snapshot.docs.map(doc => doc.data()));
+      });
   }, []);
 
   return (
