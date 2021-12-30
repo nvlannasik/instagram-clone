@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, Image, Button} from 'react-native';
+import {View, Text, Image, Button , TextInput} from 'react-native';
 import * as Yup from 'yup';
 import {Formik} from 'formik';
-import {TextInput} from 'react-native-gesture-handler';
 import {Divider} from 'react-native-elements';
 import validUrl from 'valid-url';
 
@@ -67,7 +66,7 @@ const FormikPostUploader = ({navigation}) => {
           {errors.imageUrl && (
             <Text style={{fontSize: 10, color: 'red'}}>{errors.imageUrl}</Text>
           )}
-          <Button onPress={handleSubmit} title="Share" disabled={!isValid} />
+          <Button onPress={handleSubmit} title="Share"/>
         </>
       )}
     </Formik>
