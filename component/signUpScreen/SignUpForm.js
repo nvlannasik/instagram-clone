@@ -39,8 +39,9 @@ const SignupForm = ({navigation}) => {
       console.log('Firebase user created sukses ', email, password, username);
 
       firestore()
-        .collection('Users')
-        .add({
+        .collection('users')
+        .doc(authUser.user.email)
+        .set({
           owner_uid: authUser.user.uid,
           username: username,
           email: authUser.user.email,
