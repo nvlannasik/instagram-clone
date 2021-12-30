@@ -73,7 +73,7 @@ const LoginForm = ({navigation}) => {
                 value={values.password}
               />
             </View>
-            <View style={{alignItems: 'flex-end', marginBottom: 30}}>
+            <View style={styles.textForgot}>
               <Text style={{color: '#6BB0F5'}}>Forgot Password?</Text>
             </View>
 
@@ -107,11 +107,13 @@ const styles = StyleSheet.create({
 
   inputField: {
     borderRadius: 4,
-    padding: 12,
+    paddingVertical: 2,
+    paddingLeft: 8,
     backgroundColor: '#FAFAFA',
     marginBottom: 10,
     borderWidth: 1,
-    height: 65,
+    height: 45,
+    marginHorizontal: 8,
   },
 
   button: isValid => ({
@@ -120,6 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 42,
     borderRadius: 4,
+    marginHorizontal: 8,
   }),
 
   buttonText: {
@@ -133,5 +136,10 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     marginTop: 50,
+  },
+  textForgot: {
+    alignItems: 'flex-end',
+    marginBottom: 30,
+    marginRight: 8,
   },
 });
