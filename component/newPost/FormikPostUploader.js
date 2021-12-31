@@ -66,7 +66,7 @@ const FormikPostUploader = ({navigation}) => {
           {errors.imageUrl && (
             <Text style={{fontSize: 10, color: 'red'}}>{errors.imageUrl}</Text>
           )}
-          <Button onPress={handleSubmit} title="Share"/>
+          <Button onPress={handleSubmit} title="Share" disabled={!isValid}/>
         </>
       )}
     </Formik>

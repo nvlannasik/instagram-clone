@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,22 @@ import * as Yup from 'yup';
 import Validator from 'email-validator';
 
 const LoginForm = ({navigation}) => {
+  const [data, setData] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const ReadData = async () => {
+    try {
+      const response = await fetch('http://10.0.2.2:3000/ig/username/'+username);
+      const json = await response.json();
+      setData(json.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      navigation.navigate('HomeScreen');
+    }
+  }
+
   const LoginFormSchema = Yup.object().shape({
     email: Yup.string().email().required('An email is required'),
     password: Yup.string()
@@ -27,7 +43,7 @@ const LoginForm = ({navigation}) => {
         }}
         validationSchema={LoginFormSchema}
         validateOnMount={true}>
-        {({handleChange, handleBlur, handleSubmit, values, isValid}) => (
+        {({ handleBlur, values}) => (
           <>
             <View
               style={[
@@ -46,9 +62,9 @@ const LoginForm = ({navigation}) => {
                 keyboardType="email-address"
                 textContentType="emailAddress"
                 autoFocus={true}
-                onChangeText={handleChange('email')}
+                onChangeText={setUsername}
                 onBlur={handleBlur('email')}
-                value={values.email}
+                value={username}
               />
             </View>
             <View
@@ -68,9 +84,9 @@ const LoginForm = ({navigation}) => {
                 autoCapitalize="none"
                 autoCorrect={false}
                 secureTextEntry={true}
-                onChangeText={handleChange('password')}
+                onChangeText={setPassword}
                 onBlur={handleBlur('password')}
-                value={values.password}
+                value={password}
               />
             </View>
             <View style={styles.textForgot}>
@@ -79,9 +95,9 @@ const LoginForm = ({navigation}) => {
 
             <Pressable
               titleSize={20}
-              style={styles.button(isValid)}
-              onPress={handleSubmit}
-              disabled={!isValid}>
+              style={styles.button}
+              onPress={() => ReadData()}
+              >
               <Text style={styles.buttonText}>Log In</Text>
             </Pressable>
 
@@ -116,14 +132,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
 
-  button: isValid => ({
-    backgroundColor: isValid ? '#0096F6' : '#9ACAF7',
+  button: {
+    backgroundColor: '#0096F6',
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 42,
     borderRadius: 4,
     marginHorizontal: 8,
-  }),
+  },
 
   buttonText: {
     fontWeight: '600',
