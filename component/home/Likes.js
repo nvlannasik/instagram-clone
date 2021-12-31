@@ -5,7 +5,7 @@ const Likes = ({post}) => {
   return (
     <View style={style.container}>
       <Text style={style.textLike}>
-        {post.likes.toLocaleString('en')} Likes
+        {post.likes_by_users.length.toLocaleString('en')} Likes
       </Text>
     </View>
   );
