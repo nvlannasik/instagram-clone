@@ -12,6 +12,32 @@ import * as Yup from 'yup';
 import Validator from 'email-validator';
 
 const SignupForm = ({navigation}) => {
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const MakeAccount = async () => {
+    try {
+      const response = await fetch('http://10.0.2.2:3000/ig', {
+        method : 'POST',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({
+          username : username,
+          email : email,
+          password : password
+        })
+      });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      navigation.navigate('LoginScreen');
+    }
+  }
+
   const SignupFormSchema = Yup.object().shape({
     email: Yup.string().email().required('An email is required'),
     username: Yup.string().required().min(2, 'A Username is required'),
@@ -28,7 +54,7 @@ const SignupForm = ({navigation}) => {
         }}
         validationSchema={SignupFormSchema}
         validateOnMount={true}>
-        {({handleChange, handleBlur, handleSubmit, values, isValid}) => (
+        {({ handleBlur, values, isValid}) => (
           <>
             <View
               style={[
@@ -47,9 +73,9 @@ const SignupForm = ({navigation}) => {
                 keyboardType="email-address"
                 textContentType="emailAddress"
                 autoFocus={true}
-                onChangeText={handleChange('email')}
+                onChangeText={setEmail}
                 onBlur={handleBlur('email')}
-                value={values.email}
+                value={email}
               />
             </View>
 
@@ -70,9 +96,9 @@ const SignupForm = ({navigation}) => {
                 autoCapitalize="none"
                 autoCorrect={false}
                 secureTextEntry={false}
-                onChangeText={handleChange('username')}
+                onChangeText={setUsername}
                 onBlur={handleBlur('username')}
-                value={values.username}
+                value={username}
               />
             </View>
 
@@ -93,16 +119,16 @@ const SignupForm = ({navigation}) => {
                 autoCapitalize="none"
                 autoCorrect={false}
                 secureTextEntry={true}
-                onChangeText={handleChange('password')}
+                onChangeText={setPassword}
                 onBlur={handleBlur('password')}
-                value={values.password}
+                value={password}
               />
             </View>
             <Pressable
               titleSize={20}
-              style={styles.button(isValid)}
-              onPress={handleSubmit}
-              disabled={!isValid}>
+              style={styles.button}
+              onPress={() => MakeAccount()}
+              >
               <Text style={styles.buttonText}>Sign Up</Text>
             </Pressable>
 
@@ -137,14 +163,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
 
-  button: isValid => ({
-    backgroundColor: isValid ? '#0096F6' : '#9ACAF7',
+  button : {
+    backgroundColor : '#0096F6',
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 42,
     borderRadius: 4,
     marginHorizontal: 8,
-  }),
+  },
 
   buttonText: {
     fontWeight: '600',
