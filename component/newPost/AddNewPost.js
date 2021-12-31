@@ -22,7 +22,6 @@ const Header = ({navigation}) => (
       />
     </TouchableOpacity>
     <Text style={styles.headerText}>NEW POST</Text>
-    <Text></Text>
   </View>
 );
 
@@ -42,6 +41,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 20,
     marginTop: 10,
-    marginRight: 20,
+    marginRight: 125,
   },
 });

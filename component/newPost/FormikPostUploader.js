@@ -9,7 +9,7 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 const uploadPostSchema = Yup.object().shape({
-  imageurl: Yup.string().url().required('A URL is required'),
+  imageUrl: Yup.string().url().required('A URL is required'),
   caption: Yup.string().max(2200, 'Caption has reached the character limit.'),
 });
 
@@ -52,9 +52,9 @@ const FormikPostUploader = ({navigation}) => {
         profile_picture: currentLoggedInUser.profilePicture,
         owner_uid: auth().currentUser.uid,
         caption: caption,
-        createdAt: firestore().FieldValue.serverTimestamp(),
+        createdAt: firestore.FieldValue.serverTimestamp(),
         likes: 0,
-        likes__by_users: [],
+        likes_by_users: [],
         comments: [],
       })
       .then(() => navigation.goBack());
@@ -111,7 +111,7 @@ const FormikPostUploader = ({navigation}) => {
           {errors.imageUrl && (
             <Text style={{fontSize: 10, color: 'red'}}>{errors.imageUrl}</Text>
           )}
-          <Button onPress={handleSubmit} title="Share" />
+          <Button onPress={handleSubmit} title="Share" disabled={!isValid} />
         </>
       )}
     </Formik>
