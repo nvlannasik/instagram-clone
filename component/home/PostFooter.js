@@ -4,12 +4,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import IconFeather from 'react-native-vector-icons/Feather';
 import IconIo from 'react-native-vector-icons/Ionicons';
 
-const PostFooter = () => {
+const PostFooter = ({handleLike, post}) => {
   return (
     <View style={style.container}>
       <View style={style.spasi}>
         <View style={{marginLeft: 16}}>
-          <Icon name="heart-o" size={25} color="#181818" />
+          <TouchableOpacity onPress={() => handleLike(post)}>
+            <Icon name="heart-o" size={25} color="#181818" />
+          </TouchableOpacity>
         </View>
         <View style={style.flip}>
           <IconIo name="chatbubble-outline" size={25} color="#181818" />
