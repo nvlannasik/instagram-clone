@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import IconWe from 'react-native-vector-icons/FontAwesome5';
+import IconIo from 'react-native-vector-icons/MaterialCommunityIcons';
 import auth from '@react-native-firebase/auth';
 
 const handleSignOut = async () => {
@@ -23,15 +24,15 @@ const Header = ({navigation}) => {
         <TouchableOpacity onPress={() => navigation.push('NewPostScreen')}>
           <Icon
             name="add-circle-outline"
-            size={30}
+            size={27}
             style={{marginRight: 16}}
             color={'#2C2C2C'}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon
-            name="heart-outline"
-            size={30}
+        <TouchableOpacity onPress={handleSignOut}>
+          <IconIo
+            name="logout"
+            size={27}
             style={{marginRight: 16}}
             color={'#2C2C2C'}
           />
@@ -42,7 +43,7 @@ const Header = ({navigation}) => {
           </View>
           <IconWe
             name="facebook-messenger"
-            size={25}
+            size={27}
             style={{marginRight: 16}}
             color={'#2C2C2C'}
           />

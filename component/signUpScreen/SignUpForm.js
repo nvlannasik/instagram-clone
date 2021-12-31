@@ -135,7 +135,7 @@ const SignupForm = ({navigation}) => {
               style={styles.button(isValid)}
               onPress={handleSubmit}
               disabled={!isValid}>
-              <Text style={styles.buttonText}>Sign Up</Text>
+              <Text style={styles.buttonText}>Sign Up & Log In</Text>
             </Pressable>
 
             <View style={styles.signUpContainer}>
