@@ -41,7 +41,7 @@ Start the server
 
 ## Demo
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=tD1UJEAUb7g)
+[![Play Demo](https://raw.githubusercontent.com/nvlannasik/instagram-clone/master/assets/Demo.PNG)](https://www.youtube.com/watch?v=tD1UJEAUb7g)
 
 ## Team
 
