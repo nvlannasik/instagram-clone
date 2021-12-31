@@ -1,9 +1,37 @@
-import React, {useState} from 'react';
+import React, {useEffect,useState} from 'react';
 import {View, Text, Image, Button , TextInput} from 'react-native';
 import * as Yup from 'yup';
 import {Formik} from 'formik';
 import {Divider} from 'react-native-elements';
 import validUrl from 'valid-url';
+
+
+const [username, setUsername] = useState('jujuju123');
+const [imgurl, setImgUrl] = useState("");
+const [post, setPost] = useState("");
+
+
+const updatePost = async () => {
+  try{
+    const response = await fetch('http://10.0.2.2:3000/ig/username/'+username, {
+      method: 'PUT',
+      headers: {
+        Accept : 'application/json',
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify({
+        username: username,
+        post : post ,
+        imgurl : imgurl
+      })
+    });
+  } catch (error){
+    console.error(error);
+  } finally {
+    navigation.navigate('HomeScreen')
+  }
+}
+
 
 const uploadPostSchema = Yup.object().shape({
   imageurl: Yup.string().url().required('A URL is required'),
@@ -25,7 +53,7 @@ const FormikPostUploader = ({navigation}) => {
       }}
       validationSchema={uploadPostSchema}
       validateOnMount={true}>
-      {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (
+      {({handleBlur, values, errors}) => (
         <>
           <View
             style={{
@@ -47,9 +75,9 @@ const FormikPostUploader = ({navigation}) => {
                 placeholder="Write a caption ..."
                 placeholderTextColor="gray"
                 multiline={true}
-                onChangeText={handleChange('caption')}
+                onChangeText={setPost}
                 onBlur={handleBlur('caption')}
-                value={values.caption}
+                value={post}
               />
             </View>
           </View>
@@ -59,14 +87,14 @@ const FormikPostUploader = ({navigation}) => {
             style={{color: 'black', fontSize: 14}}
             placeholder="Enter Image Url"
             placeholderTextColor="gray"
-            onChangeText={handleChange('imageUrl')}
+            onChangeText={setImgUrl}
             onBlur={handleBlur('imageUrl')}
-            value={values.imageUrl}
+            value={imgurl}
           />
           {errors.imageUrl && (
             <Text style={{fontSize: 10, color: 'red'}}>{errors.imageUrl}</Text>
           )}
-          <Button onPress={handleSubmit} title="Share" disabled={!isValid}/>
+          <Button onPress={()=> updatePost()} title="Share"/>
         </>
       )}
     </Formik>
