@@ -1,37 +1,10 @@
-import React, {useEffect,useState} from 'react';
+import React, {useState} from 'react';
 import {View, Text, Image, Button , TextInput} from 'react-native';
 import * as Yup from 'yup';
 import {Formik} from 'formik';
 import {Divider} from 'react-native-elements';
 import validUrl from 'valid-url';
-
-
-const [username, setUsername] = useState('jujuju123');
-const [imgurl, setImgUrl] = useState("");
-const [post, setPost] = useState("");
-
-
-const updatePost = async () => {
-  try{
-    const response = await fetch('http://10.0.2.2:3000/ig/username/'+username, {
-      method: 'PUT',
-      headers: {
-        Accept : 'application/json',
-        'Content-Type' : 'application/json'
-      },
-      body : JSON.stringify({
-        username: username,
-        post : post ,
-        imgurl : imgurl
-      })
-    });
-  } catch (error){
-    console.error(error);
-  } finally {
-    navigation.navigate('HomeScreen')
-  }
-}
-
+import LoginForm from '../loginScreen/LoginForm';
 
 const uploadPostSchema = Yup.object().shape({
   imageurl: Yup.string().url().required('A URL is required'),
@@ -41,7 +14,34 @@ const uploadPostSchema = Yup.object().shape({
 const PLACEHOLDER_IMG =
   'https://img.icons8.com/ios-glyphs/90/000000/full-image.png';
 
+
+
 const FormikPostUploader = ({navigation}) => {
+  const [username, setUsername] = useState(LoginForm['']);
+  const [post, setPost] = useState("");
+  const [imgurl, setImgUrl] = useState("");
+  
+  const NewPost = async () => {
+    try {
+      const response = await fetch('http://10.0.2.2:3000/ig/username/'+username,{
+        method : 'PUT',
+        headers: {
+          Accept : 'application/json',
+          'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify({
+          username : username,
+          post : post,
+          imgurl : imgurl
+        })
+      });
+    } catch (error){
+      console.error(error);
+    } finally {
+      navigation.navigate('HomeScreen')
+    }
+  }
+
   const [ThumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG);
   return (
     <Formik
@@ -53,7 +53,7 @@ const FormikPostUploader = ({navigation}) => {
       }}
       validationSchema={uploadPostSchema}
       validateOnMount={true}>
-      {({handleBlur, values, errors}) => (
+      {({handleBlur, handleChange, handleSubmit, values, errors, isValid}) => (
         <>
           <View
             style={{
@@ -94,11 +94,10 @@ const FormikPostUploader = ({navigation}) => {
           {errors.imageUrl && (
             <Text style={{fontSize: 10, color: 'red'}}>{errors.imageUrl}</Text>
           )}
-          <Button onPress={()=> updatePost()} title="Share"/>
+          <Button onPress={ () => NewPost()} title="Share"/>
         </>
       )}
     </Formik>
   );
 };
-
 export default FormikPostUploader;
