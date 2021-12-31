@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconFeather from 'react-native-vector-icons/Feather';
 import IconIo from 'react-native-vector-icons/Ionicons';
+import auth from '@react-native-firebase/auth';
 
 const PostFooter = ({handleLike, post}) => {
   return (
@@ -10,7 +11,14 @@ const PostFooter = ({handleLike, post}) => {
       <View style={style.spasi}>
         <View style={{marginLeft: 16}}>
           <TouchableOpacity onPress={() => handleLike(post)}>
-            <Icon name="heart-o" size={25} color="#181818" />
+            <Image
+              style={style.footerIcon}
+              source={{
+                uri: post.likes_by_users.includes(auth().currentUser.email)
+                  ? postFooterIcons[0].likedImageUrl
+                  : postFooterIcons[0].imageUrl,
+              }}
+            />
           </TouchableOpacity>
         </View>
         <View style={style.flip}>
@@ -31,6 +39,15 @@ const PostFooter = ({handleLike, post}) => {
     </View>
   );
 };
+
+const postFooterIcons = [
+  {
+    name: 'Like',
+    imageUrl: 'https://img.icons8.com/fluency-systems-regular/344/like.png',
+    likedImageUrl:
+      'https://img.icons8.com/ios-glyphs/90/fa314a/filled-like.png',
+  },
+];
 
 const style = StyleSheet.create({
   container: {
@@ -53,6 +70,10 @@ const style = StyleSheet.create({
   flip: {
     transform: [{scaleX: -1}],
     marginLeft: 16,
+  },
+  footerIcon: {
+    height: 28,
+    width: 28,
   },
 });
 
